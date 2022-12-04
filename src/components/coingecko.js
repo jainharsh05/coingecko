@@ -15,14 +15,13 @@ function Coingecko() {
       .then((result) => setData(result))
       .catch((error) => console.log('error', error));
   }, []);
-  console.log(data);
   return (
     <Layout>
-      <section className="md:px-5 md:mx-5">
+      <section className="md:px-5 md:mx-5 ">
         <div className="grid lg:grid-cols-3 ">
           {data?.slice(0, 10)?.map((el) => {
             return (
-              <div key={el.id} className="lg:m-2 lg:p-5">
+              <div key={el.id} className="lg:m-2 lg:p-5 my-2">
                 <Card
                   id={el?.id}
                   url={el.url}
@@ -30,6 +29,7 @@ function Coingecko() {
                   name={el.name}
                   country={el.country}
                   logo={el.image}
+                  detailedPage={false}
                 />
               </div>
             );
